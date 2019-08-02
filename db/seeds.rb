@@ -36,7 +36,7 @@ breeds = [
 ]
 
 # Create dogs
-1000.times do
+100.times do
   name = Faker::FunnyName.two_word_name.split(' ')[0]
   city = City.all.sample
   breed = breeds.sample
@@ -44,14 +44,14 @@ breeds = [
 end
 
 # Create dogsitters
-300.times do
+100.times do
   name = Faker::FunnyName.two_word_name
   city = City.all.sample
   Dogsitter.create(name: name, city: city)
 end
 
 # Create strolls
-5000.times do
+100.times do
   city = City.all.sample
   dogsitter = Dogsitter.where('city_id = ?', city.id).sample
   dogs = Dog.where('city_id = ?', city.id)
